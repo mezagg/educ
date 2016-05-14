@@ -27,3 +27,7 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 ]
 
 grails.plugin.springsecurity.logout.postOnly = false
+
+slack {
+    webhook = 'https://hooks.slack.com/services/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'
+}

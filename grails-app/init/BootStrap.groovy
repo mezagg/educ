@@ -9,7 +9,7 @@ class BootStrap {
       def adminRole = new Role('ROLE_ADMIN').save()
       def userRole = new Role('ROLE_USER').save()
 
-      def gmezaUser = new User('gmeza', 'password').save()
+      def gmezaUser = new User('gmeza', 'gmeza').save()
 
       UserRole.create gmezaUser, adminRole
 
