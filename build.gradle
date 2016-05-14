@@ -31,6 +31,8 @@ ext {
 repositories {
     mavenLocal()
     maven { url "https://repo.grails.org/grails/core" }
+    maven { url "http://dl.bintray.com/mathifonseca/grails-plugins" }
+
 }
 
 dependencyManagement {
@@ -54,6 +56,7 @@ dependencies {
     compile "org.hibernate:hibernate-ehcache"
     compile "org.grails.plugins:spring-security-core:3.1.1"
     console "org.grails:grails-console"
+    compile "org.grails.plugins:slack:3.0.0"
 
     profile "org.grails.profiles:web:3.1.6"
     runtime "com.bertramlabs.plugins:asset-pipeline-grails:2.8.2"
