@@ -10,12 +10,19 @@ class EnviaController {
     
     def envia(){
         slackService.send{
-         text 'Lorem ipsum dolor sit amet.'
-    username 'gmeza'
-    iconEmoji ':hamburger:'
-    channel '@general'
-    unfurlLinks false
-    unfurlMedia false
+                text 'Hola buenos dias.'
+               username 'gmeza'
+               iconEmoji ':grinning:'
+               channel '#general'
+               
+               unfurlLinks false
+               unfurlMedia false
+               attachment{
+                   title 'Titulo'
+                   text 'Texto'
+                   imageUrl 'http://www.educreaconsultoras.com.mx/wp-content/uploads/2016/03/bg_welcome.jpg'
+               }
         }
+        render 'ok'
     }
 }

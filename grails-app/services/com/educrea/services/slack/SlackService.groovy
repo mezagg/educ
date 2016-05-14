@@ -38,7 +38,7 @@ class SlackService {
 
 		def resp = rest.post(webhook.toString()) {
 			header('Content-Type', 'application/json;charset=UTF-8')
-			json jsonMessage
+			json jsonMessage.toString()
 		}
 
 		if (resp.status != 200 || resp.text != 'ok') {
