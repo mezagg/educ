@@ -54,7 +54,8 @@ dependencies {
     compile "org.hibernate:hibernate-ehcache"
     compile "org.grails.plugins:spring-security-core:3.1.1"
     console "org.grails:grails-console"
-compile 'org.grails:grails-datastore-rest-client:5.0.0.RC2'
+    compile 'org.grails:grails-datastore-rest-client:5.0.0.RC2'
+    runtime "mysql:mysql-connector-java:5.1.37"
 
  
 

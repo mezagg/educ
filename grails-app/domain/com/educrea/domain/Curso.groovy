@@ -16,6 +16,7 @@ class Curso {
     static hasMany = [modulos: Modulo]
     
     static constraints = {
-        
+        nombre blank:false
+        acronimo unique: true
     }
 }

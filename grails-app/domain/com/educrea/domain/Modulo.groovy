@@ -20,5 +20,6 @@ class Modulo {
     }
     
     static constraints = {
+         nombre blank:false 
     }
 }
