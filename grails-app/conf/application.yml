@@ -12,8 +12,8 @@ dataSource:
     pooled: true
     jmxExport: true
     driverClassName: com.mysql.jdbc.Driver
-    username: educrea
-    password: educrea
+    username: educreac_grails
+    password: 91Qgw7Pqzl48
 
 environments:
     development:
@@ -22,8 +22,8 @@ environments:
             url: jdbc:mysql://127.0.0.1/educrea
     test:
         dataSource:
-            dbCreate: update
-            url: jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+            dbCreate: create
+            url: jdbc:mysql://www.educreaconsultoras.com.mx/educreac_grails
     production:
         dataSource:
             dbCreate: update
