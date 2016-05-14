@@ -1,96 +1,97 @@
-package com.educrea.domain
+package com.educrea.security
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+
 import grails.plugin.springsecurity.annotation.Secured
 
 @Transactional(readOnly = true)
 @Secured('ROLE_ADMIN')
-class ModuloController {
+class RoleController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Modulo.list(params), model:[moduloCount: Modulo.count()]
+        respond Role.list(params), model:[roleCount: Role.count()]
     }
 
-    def show(Modulo modulo) {
-        respond modulo
+    def show(Role role) {
+        respond role
     }
 
     def create() {
-        respond new Modulo(params)
+        respond new Role(params)
     }
 
     @Transactional
-    def save(Modulo modulo) {
-        if (modulo == null) {
+    def save(Role role) {
+        if (role == null) {
             transactionStatus.setRollbackOnly()
             notFound()
             return
         }
 
-        if (modulo.hasErrors()) {
+        if (role.hasErrors()) {
             transactionStatus.setRollbackOnly()
-            respond modulo.errors, view:'create'
+            respond role.errors, view:'create'
             return
         }
 
-        modulo.save flush:true
+        role.save flush:true
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'modulo.label', default: 'Modulo'), modulo.id])
-                redirect modulo
+                flash.message = message(code: 'default.created.message', args: [message(code: 'role.label', default: 'Role'), role.id])
+                redirect role
             }
-            '*' { respond modulo, [status: CREATED] }
+            '*' { respond role, [status: CREATED] }
         }
     }
 
-    def edit(Modulo modulo) {
-        respond modulo
+    def edit(Role role) {
+        respond role
     }
 
     @Transactional
-    def update(Modulo modulo) {
-        if (modulo == null) {
+    def update(Role role) {
+        if (role == null) {
             transactionStatus.setRollbackOnly()
             notFound()
             return
         }
 
-        if (modulo.hasErrors()) {
+        if (role.hasErrors()) {
             transactionStatus.setRollbackOnly()
-            respond modulo.errors, view:'edit'
+            respond role.errors, view:'edit'
             return
         }
 
-        modulo.save flush:true
+        role.save flush:true
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'modulo.label', default: 'Modulo'), modulo.id])
-                redirect modulo
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'role.label', default: 'Role'), role.id])
+                redirect role
             }
-            '*'{ respond modulo, [status: OK] }
+            '*'{ respond role, [status: OK] }
         }
     }
 
     @Transactional
-    def delete(Modulo modulo) {
+    def delete(Role role) {
 
-        if (modulo == null) {
+        if (role == null) {
             transactionStatus.setRollbackOnly()
             notFound()
             return
         }
 
-        modulo.delete flush:true
+        role.delete flush:true
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'modulo.label', default: 'Modulo'), modulo.id])
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'role.label', default: 'Role'), role.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
@@ -100,7 +101,7 @@ class ModuloController {
     protected void notFound() {
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'modulo.label', default: 'Modulo'), params.id])
+                flash.message = message(code: 'default.not.found.message', args: [message(code: 'role.label', default: 'Role'), params.id])
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }
