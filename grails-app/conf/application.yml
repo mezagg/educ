@@ -22,8 +22,8 @@ environments:
             url: jdbc:mysql://127.0.0.1/educrea
     test:
         dataSource:
-            dbCreate: create
-            url: jdbc:mysql://www.educreaconsultoras.com.mx/educreac_grails
+            dbCreate: update
+            url: jdbc:mysql://www.educreaconsultoras.com.mx/educrea
     production:
         dataSource:
             dbCreate: update
