@@ -6,91 +6,91 @@ import grails.plugin.springsecurity.annotation.Secured
 
 @Secured('ROLE_ADMIN')
 @Transactional(readOnly = true)
-class CursoController {
+class SesionController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Curso.list(params), model:[cursoCount: Curso.count()]
+        respond Sesion.list(params), model:[sesionCount: Sesion.count()]
     }
 
-    def show(Curso curso) {
-        respond curso
+    def show(Sesion sesion) {
+        respond sesion
     }
 
     def create() {
-        respond new Curso(params)
+        respond new Sesion(params)
     }
 
     @Transactional
-    def save(Curso curso) {
-        if (curso == null) {
+    def save(Sesion sesion) {
+        if (sesion == null) {
             transactionStatus.setRollbackOnly()
             notFound()
             return
         }
 
-        if (curso.hasErrors()) {
+        if (sesion.hasErrors()) {
             transactionStatus.setRollbackOnly()
-            respond curso.errors, view:'create'
+            respond sesion.errors, view:'create'
             return
         }
 
-        curso.save flush:true
+        sesion.save flush:true
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'curso.label', default: 'Curso'), curso.id])
-                redirect curso
+                flash.message = message(code: 'default.created.message', args: [message(code: 'sesion.label', default: 'Sesion'), sesion.id])
+                redirect sesion
             }
-            '*' { respond curso, [status: CREATED] }
+            '*' { respond sesion, [status: CREATED] }
         }
     }
 
-    def edit(Curso curso) {
-        respond curso
+    def edit(Sesion sesion) {
+        respond sesion
     }
 
     @Transactional
-    def update(Curso curso) {
-        if (curso == null) {
+    def update(Sesion sesion) {
+        if (sesion == null) {
             transactionStatus.setRollbackOnly()
             notFound()
             return
         }
 
-        if (curso.hasErrors()) {
+        if (sesion.hasErrors()) {
             transactionStatus.setRollbackOnly()
-            respond curso.errors, view:'edit'
+            respond sesion.errors, view:'edit'
             return
         }
 
-        curso.save flush:true
+        sesion.save flush:true
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'curso.label', default: 'Curso'), curso.id])
-                redirect curso
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'sesion.label', default: 'Sesion'), sesion.id])
+                redirect sesion
             }
-            '*'{ respond curso, [status: OK] }
+            '*'{ respond sesion, [status: OK] }
         }
     }
 
     @Transactional
-    def delete(Curso curso) {
+    def delete(Sesion sesion) {
 
-        if (curso == null) {
+        if (sesion == null) {
             transactionStatus.setRollbackOnly()
             notFound()
             return
         }
 
-        curso.delete flush:true
+        sesion.delete flush:true
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'curso.label', default: 'Curso'), curso.id])
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'sesion.label', default: 'Sesion'), sesion.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
@@ -100,7 +100,7 @@ class CursoController {
     protected void notFound() {
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'curso.label', default: 'Curso'), params.id])
+                flash.message = message(code: 'default.not.found.message', args: [message(code: 'sesion.label', default: 'Sesion'), params.id])
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }
