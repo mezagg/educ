@@ -12,18 +12,18 @@ dataSource:
     pooled: true
     jmxExport: true
     driverClassName: com.mysql.jdbc.Driver
-    username: educreac_grails
-    password: 91Qgw7Pqzl48
+    username: educreag
+    password: educreag
 
 environments:
     development:
         dataSource:
             dbCreate: create
-            url: jdbc:mysql://127.0.0.1/educrea
+            url: jdbc:mysql://127.0.0.1/educreag
     test:
         dataSource:
             dbCreate: update
-            url: jdbc:mysql://www.educreaconsultoras.com.mx/educreac_grails
+            url: jdbc:mysql://127.0.0.1/educreag
     production:
         dataSource:
             dbCreate: update
