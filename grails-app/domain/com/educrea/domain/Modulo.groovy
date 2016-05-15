@@ -5,7 +5,7 @@ class Modulo {
     String nombre
     String descripcion
     Boolean activo
-    
+    Integer orden
     
     static hasMany = [sesiones: Sesion]
     static belongsTo = [curso: Curso]

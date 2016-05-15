@@ -4,9 +4,18 @@ class Curso {
     Integer id
     String acronimo
     String nombre
-    String descripcion
+   
     String objetivo
+    String descripcion
+     
     Boolean activo
+    
+    
+    enum ModalidadCurso {
+    VIRTUAL, PRESENCIAL
+    }
+
+    ModalidadCurso modalidad
     
     public Curso(acronimo, nombre){
         this.acronimo = acronimo
@@ -18,5 +27,6 @@ class Curso {
     static constraints = {
         nombre blank:false
         acronimo unique: true
+        modalidad blank: false
     }
 }

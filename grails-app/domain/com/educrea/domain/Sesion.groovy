@@ -5,10 +5,13 @@ class Sesion {
     String nombre
     String descripcion
     String instrucciones
+    Integer orden
      
     static belongsTo = [modulo: Modulo]
+    static hasMany = [actividades: Actividad]
+    
     static constraints = {
-        nombre: blank: false
+        nombre size:1..50, blank: false
         
     }
 }
