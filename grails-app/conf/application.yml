@@ -18,8 +18,8 @@ dataSource:
 environments:
     development:
         dataSource:
-            dbCreate: create
-            url: jdbc:mysql://54.174.184.65/educreag
+            dbCreate: update
+            url: jdbc:mysql://localhost/educreag
     test:
         dataSource:
             dbCreate: update
