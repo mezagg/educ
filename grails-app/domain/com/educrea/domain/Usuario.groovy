@@ -2,22 +2,29 @@ package com.educrea.domain
 
 class Usuario {
     
-    String login
-    String password
+    Integer id
     
     String nombre
+    String segundoNombre
     String apellidoPaterno
     String apellidoMaterno
-    String rfc
+    String telefono
     
     Date fechaNacimiento
     
-    
-    int nivel
+    /**
+    * De acuerdo al numero de cursos irá incrementando su nivel
+    * dentro de la plataforma.
+    **/
+    Integer nivel
     String email
+    Domicilio domicilio
+    DatosFacturacion datosFacturacion
+    
+    static belongsTo  = Usuario
     
     static constraints = {
-        login size: 5..15, blank: false, unique: true
+        
         email email: true, blank: false
         fechaNacimiento: blank:false
         //age min: 18

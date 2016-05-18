@@ -8,9 +8,13 @@ class EnviaController {
     def slackService 
     def index() { }
     
+     def tree(){
+         log.error(request.attachment)
+         return 'ok'
+     }
     def envia(){
         slackService.send{
-                text 'Hola buenos dias.'
+               text 'Hola buenos dias.'
                username 'gmeza'
                iconEmoji ':grinning:'
                channel '#general'

@@ -1,14 +1,12 @@
 package com.educrea.domain
 
-class Calificacion {
+class ActividadUsuario {
     Integer id
-    Double calificacion
+    Actividad actividad
     Usuario usuario
-    Curso curso
+    Double calificacion 
     
     static constraints = {
-        calificacion blank: false
         calificacion (range: 5..10)
-        
     }
 }

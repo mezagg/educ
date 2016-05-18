@@ -7,7 +7,7 @@ class Curso {
    
     String objetivo
     String descripcion
-     
+    String urlImagen
     Boolean activo
     
     

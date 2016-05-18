@@ -6,6 +6,7 @@ class Sesion {
     String descripcion
     String instrucciones
     Integer orden
+    Boolean activo
      
     static belongsTo = [modulo: Modulo]
     static hasMany = [actividades: Actividad]

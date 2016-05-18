@@ -6,6 +6,7 @@ class Modulo {
     String descripcion
     Boolean activo
     Integer orden
+    String urlImagen
     
     static hasMany = [sesiones: Sesion]
     static belongsTo = [curso: Curso]
