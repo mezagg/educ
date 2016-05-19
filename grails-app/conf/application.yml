@@ -28,7 +28,7 @@ environments:
     production:
         dataSource:
             dbCreate: validate
-            url: jdbc:mysql://127.0.0.1/educreag;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+            url: jdbc:mysql://127.0.0.1/educreag
             properties:
                 jmxEnabled: true
                 initialSize: 5
