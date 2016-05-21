@@ -10,4 +10,7 @@ class EntidadFederativa {
     static hasMany = [municipios: Municipio]
     static constraints = {
     }
+    String toString(){
+        return "id:"+id+" clave:"+clave+" nombre:"+nombre
+    }
 }

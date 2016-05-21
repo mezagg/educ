@@ -4,7 +4,7 @@ import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 import grails.plugin.springsecurity.annotation.Secured
-
+import grails.converters.JSON
 @Secured('ROLE_ADMIN')
 @Transactional(readOnly = true)
 class PaisController {
@@ -15,7 +15,11 @@ class PaisController {
         params.max = Math.min(max ?: 10, 100)
         respond Pais.list(params), model:[paisCount: Pais.count()]
     }
-
+    def busca(String nombre){
+        render Pais.findByNombre(nombre) as JSON;
+         
+    }
+    
     def show(Pais pais) {
         respond pais
     }

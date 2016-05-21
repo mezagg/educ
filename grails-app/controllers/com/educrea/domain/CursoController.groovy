@@ -3,6 +3,7 @@ package com.educrea.domain
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
+import grails.converters.JSON
 
 @Secured('ROLE_ADMIN')
 @Transactional(readOnly = true)
@@ -14,7 +15,10 @@ class CursoController {
         params.max = Math.min(max ?: 10, 100)
         respond Curso.list(params), model:[cursoCount: Curso.count()]
     }
-
+    def activos(){
+        render  Curso.list() as JSON;
+    }
+    
     def show(Curso curso) {
         respond curso
     }
