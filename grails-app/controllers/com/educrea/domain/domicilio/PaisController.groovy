@@ -11,6 +11,10 @@ class PaisController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    def listar(){
+        render Pais.list() as JSON
+    }
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Pais.list(params), model:[paisCount: Pais.count()]
