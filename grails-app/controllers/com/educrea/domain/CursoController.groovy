@@ -22,6 +22,10 @@ class CursoController {
     def activos(){
         render  Curso.list() as JSON;
     }
+
+    def mostrar(Curso curso){
+        render curso as JSON
+    }
     
     def show(Curso curso) {
         respond curso
