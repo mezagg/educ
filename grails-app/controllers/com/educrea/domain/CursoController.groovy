@@ -11,6 +11,10 @@ class CursoController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    def listar(){
+        render Curso.list() as JSON
+    }
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Curso.list(params), model:[cursoCount: Curso.count()]

@@ -26,7 +26,7 @@ class BootStrap {
       UserRole.create instructor, adminRole
       UserRole.create alumno, userRole
         
-       /* 
+
     def tipoAsentamiento = new TipoAsentamiento('Colonia').save()
     def tipoAsentamiento2 = new TipoAsentamiento('Gran usuario').save()
     def tipoAsentamiento3 = new TipoAsentamiento('Pueblo').save()
@@ -310,7 +310,7 @@ def pais243 = new Pais('Yemen', 'YE','YEM',967).save()
 def pais244 = new Pais('Yibuti', 'DJ','DJI',253).save()
 def pais245 = new Pais('Zambia', 'ZM','ZMB',260).save()
 def pais246 = new Pais('Zimbabue', 'ZW','ZWE',263).save()
-*/
+
 Curso c1=new Curso('C000', 'SERVICIO PROFESIONAL DE CARRERA', 'SERVICIO PROFESIONAL DE CARRERA', 'Analizar los referentes teóricos y normativos que sustentan el plan y programas de estudios de Educación Básica, para fortalecer la práctica docente en el aula.','/').save()
 Curso c2=new Curso('C001', 'TEORÍA Y NORMATIVIDAD DE LA EDUCACIÓN BÁSICA EN MÉXICO', 'TEORÍA Y NORMATIVIDAD DE LA EDUCACIÓN BÁSICA EN MÉXICO', 'Analizar los referentes teóricos y normativos que sustentan el plan y programas de estudios de Educación Básica, para fortalecer la práctica docente en el aula.','/').save()
 Curso c3=new Curso('C002', 'ADAPTACIÓN CURRICULAR EN EL AULA', 'ADAPTACIÓN CURRICULAR EN EL AULA', 'Identificar las características individuales de los alumnos con necesidades educativas especiales para realizar la modificación de contenidos, estrategias de enseñanza y métodos de evaluación, para favorecer la inclusión educativa.','/').save()
