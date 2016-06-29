@@ -1,5 +1,9 @@
 package com.educrea.security
 
+import com.educrea.domain.Curso
+import com.educrea.domain.domicilio.Asentamiento
+import grails.converters.JSON
+
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -11,6 +15,12 @@ class UserController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    def listar(){
+        render User.list() as JSON
+    }
+    def mostrar(User curso){
+        render curso as JSON
+    }
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond User.list(params), model:[userCount: User.count()]

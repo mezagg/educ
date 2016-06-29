@@ -26,7 +26,7 @@ class CursoController {
     def mostrar(Curso curso){
         render curso as JSON
     }
-    
+
     def show(Curso curso) {
         respond curso
     }

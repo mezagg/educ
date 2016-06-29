@@ -1,5 +1,7 @@
 package com.educrea.domain.domicilio
 
+import grails.converters.JSON
+
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -11,6 +13,9 @@ class AsentamientoController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    def listar(){
+        render Asentamiento.list() as JSON
+    }
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Asentamiento.list(params), model:[asentamientoCount: Asentamiento.count()]
